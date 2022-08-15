@@ -59,7 +59,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Sensors"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>

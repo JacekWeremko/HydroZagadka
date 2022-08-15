@@ -1,17 +1,21 @@
 package org.weremkocompany.hydrozagadka.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.data.rest.core.config.Projection;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Date;
 
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
+@EqualsAndHashCode(callSuper=true)
 @Entity
 public class MeasurementHumidity extends Measurement {
 

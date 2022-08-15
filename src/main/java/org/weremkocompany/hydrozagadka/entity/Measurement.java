@@ -1,6 +1,10 @@
 package org.weremkocompany.hydrozagadka.entity;
 
 
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,18 +20,23 @@ import java.util.Date;
  * - how users will use data in common cases
  * - what interfaces should be provided for offline dat analysis
  */
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 @MappedSuperclass
-public abstract class Measurement {
+public class Measurement {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(updatable = false, nullable = false)
-    protected Long id;
+    Long id;
 
     @Column(updatable = false, nullable = false)
-    protected Date date;
+    Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "farmId", referencedColumnName = "id")
-    protected Farm farm;
+    Farm farm;
 }
